@@ -9,7 +9,6 @@ const navigation = [
 ];
 
 export function Header() {
-    const [menuOpen, setMenuOpen] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
     const [showTopButton, setShowTopButton] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -75,7 +74,6 @@ export function Header() {
                     <a
                         href="#home"
                         className="group flex items-center gap-3"
-                        onClick={() => setMenuOpen(false)}
                     >
                         <span className="logo-mark" aria-hidden="true">
                             <span className="logo-mark__core">L. Onjoro</span>
@@ -107,95 +105,40 @@ export function Header() {
                             type="button"
                             onClick={toggleTheme}
                             aria-label="Toggle dark mode"
-                            className="grid h-10 w-10 place-items-center rounded-full border border-black/10 bg-white text-lg transition hover:-translate-y-0.5 hover:bg-leaf-400 dark:border-white/10 dark:bg-white/10"
+                            className="grid h-10 w-10 place-items-center rounded-full border border-black/10 bg-white text-lg transition hover:-translate-y-0.5 hover:bg-sky-400 dark:border-white/10 dark:bg-white/10"
                         >
                             {darkMode ? "☀️" : "🌙"}
                         </button>
 
                         <a
                             href="#contact"
-                            className="rounded-full bg-soil-900 px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-leaf-500 hover:text-black dark:bg-leaf-400 dark:text-black dark:hover:bg-white"
+                            className="rounded-full bg-black px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-sky-500 hover:text-black dark:bg-sky-400 dark:text-black dark:hover:bg-white"
                         >
                             Let's talk
                         </a>
                     </nav>
 
-                    {/* Mobile controls */}
-                    <div className="flex items-center gap-3 md:hidden">
-                        <button
-                            type="button"
-                            onClick={toggleTheme}
-                            aria-label="Toggle dark mode"
-                            className="grid h-10 w-10 place-items-center rounded-full bg-soil-900 text-lg dark:bg-leaf-400"
-                        >
-                            {darkMode ? "☀️" : "🌙"}
-                        </button>
-
-                        <button
-                            type="button"
-                            aria-label="Toggle navigation"
-                            aria-expanded={menuOpen}
-                            onClick={() => setMenuOpen((current) => !current)}
-                            className="relative grid h-11 w-11 place-items-center rounded-full bg-soil-900 dark:bg-leaf-400"
-                        >
-                            <span className="flex flex-col gap-1.5">
-                                <span
-                                    className={`block h-0.5 w-5 bg-leaf-400 transition ${menuOpen
-                                        ? "translate-y-1 rotate-45"
-                                        : ""
-                                        } dark:bg-soil-950`}
-                                />
-
-                                <span
-                                    className={`block h-0.5 w-5 bg-leaf-400 transition ${menuOpen
-                                        ? "-translate-y-1 -rotate-45"
-                                        : ""
-                                        } dark:bg-soil-950`}
-                                />
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-                {/* Mobile menu */}
-                <div
-                    className={`overflow-hidden border-t border-black/10 bg-[#f1ebe5] transition-all duration-300 dark:border-white/10 dark:bg-[#211714] md:hidden ${menuOpen
-                        ? "max-h-[500px] opacity-100"
-                        : "max-h-0 opacity-0"
-                        }`}
-                >
-                    <nav className="mx-auto flex max-w-7xl flex-col px-6 py-5">
-                        {navigation.map((item, index) => (
-                            <a
-                                key={item.label}
-                                href={item.href}
-                                onClick={() => setMenuOpen(false)}
-                                className="flex items-center justify-between border-b border-black/10 py-4 text-lg font-semibold dark:border-white/10 dark:text-white"
-                            >
-                                <span>{item.label}</span>
-                                <span className="text-leaf-500">
-                                    0{index + 1}
-                                </span>
-                            </a>
-                        ))}
-
-                        <a
-                            href="#contact"
-                            onClick={() => setMenuOpen(false)}
-                            className="mt-5 rounded-full bg-soil-900 px-6 py-4 text-center text-sm font-bold text-white dark:bg-leaf-400 dark:text-black"
-                        >
-                            Let's talk →
-                        </a>
-                    </nav>
                 </div>
             </header>
+
+            <nav className="mobile-bottom-nav md:hidden" aria-label="Mobile navigation">
+                {navigation.map((item) => (
+                    <a key={item.label} href={item.href} className="mobile-bottom-nav__link">
+                        <span className="mobile-bottom-nav__dot" aria-hidden="true" />
+                        <span>{item.label === "Farm Work" ? "Work" : item.label}</span>
+                    </a>
+                ))}
+                <button type="button" onClick={toggleTheme} className="mobile-bottom-nav__theme" aria-label="Toggle dark mode">
+                    {darkMode ? "☀" : "☾"}
+                </button>
+            </nav>
 
             {/* Back to top */}
             <button
                 type="button"
                 onClick={scrollToTop}
                 aria-label="Return to top"
-                className={`fixed bottom-6 right-6 z-50 grid h-12 w-12 place-items-center rounded-full bg-soil-900 text-xl text-leaf-400 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:bg-leaf-400 hover:text-black dark:bg-leaf-400 dark:text-black dark:hover:bg-white ${showTopButton
+                className={`fixed bottom-6 right-6 z-50 grid h-12 w-12 place-items-center rounded-full bg-black text-xl text-sky-400 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:bg-sky-400 hover:text-black dark:bg-sky-400 dark:text-black dark:hover:bg-white ${showTopButton
                     ? "translate-y-0 opacity-100"
                     : "pointer-events-none translate-y-5 opacity-0"
                     }`}

@@ -8,7 +8,7 @@ const footerLinks = [
 
 export function Footer() {
     return (
-        <footer className="border-t border-black/10 bg-leaf-50 text-black dark:border-white/10 dark:bg-soil-950 dark:text-white">
+        <footer className="border-t border-black/10 bg-sky-50 text-black dark:border-white/10 dark:bg-black dark:text-white">
             <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
                 <div className="grid gap-12 md:grid-cols-3">
                     {/* Brand */}
@@ -17,7 +17,7 @@ export function Footer() {
                             href="#home"
                             className="inline-flex items-center gap-3"
                         >
-                            <span className="grid h-11 w-11 place-items-center rounded-full bg-soil-900 text-sm font-black text-leaf-400 dark:bg-leaf-400 dark:text-black">
+                            <span className="grid h-11 w-11 place-items-center rounded-full bg-black text-sm font-black text-sky-400 dark:bg-sky-400 dark:text-black">
                                 LO
                             </span>
 
@@ -34,7 +34,7 @@ export function Footer() {
 
                     {/* Navigation */}
                     <div>
-                        <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-leaf-500">
+                        <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-sky-500">
                             Navigation
                         </h3>
 
@@ -43,7 +43,7 @@ export function Footer() {
                                 <a
                                     key={link.label}
                                     href={link.href}
-                                    className="text-sm text-black/60 transition hover:text-leaf-500 dark:text-white/60 dark:hover:text-leaf-400"
+                                    className="text-sm text-black/60 transition hover:text-sky-500 dark:text-white/60 dark:hover:text-sky-400"
                                 >
                                     {link.label}
                                 </a>
@@ -53,28 +53,28 @@ export function Footer() {
 
                     {/* Connect */}
                     <div>
-                        <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-leaf-500">
+                        <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-sky-500">
                             Connect
                         </h3>
 
                         <div className="mt-5 flex flex-col gap-3">
                             <a
                                 href="mailto:leonardonjoro@gmail.com"
-                                className="text-sm text-black/60 transition hover:text-leaf-500 dark:text-white/60 dark:hover:text-leaf-400"
+                                className="text-sm text-black/60 transition hover:text-sky-500 dark:text-white/60 dark:hover:text-sky-400"
                             >
                                 Email ↗
                             </a>
 
                             <a
                                 href="tel:0768909480"
-                                className="text-sm text-black/60 transition hover:text-leaf-500 dark:text-white/60 dark:hover:text-leaf-400"
+                                className="text-sm text-black/60 transition hover:text-sky-500 dark:text-white/60 dark:hover:text-sky-400"
                             >
                                 Call ↗
                             </a>
 
                             <a
                                 href="#projects"
-                                className="text-sm text-black/60 transition hover:text-leaf-500 dark:text-white/60 dark:hover:text-leaf-400"
+                                className="text-sm text-black/60 transition hover:text-sky-500 dark:text-white/60 dark:hover:text-sky-400"
                             >
                                 View my work ↗
                             </a>
