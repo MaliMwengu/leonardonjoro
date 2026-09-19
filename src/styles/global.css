@@ -820,62 +820,56 @@ html.dark .contact-form textarea::placeholder {
     bottom: max(0.75rem, env(safe-area-inset-bottom));
     left: 0.75rem;
     z-index: 60;
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr)) auto;
+    display: none;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     align-items: center;
     gap: 0.15rem;
     min-height: 4.25rem;
     padding: 0.5rem;
-    border: 1px solid rgba(33, 21, 13, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 1.25rem;
-    background: rgba(255, 255, 255, 0.86);
-    box-shadow: 0 14px 35px rgba(33, 21, 13, 0.18);
+    background: rgba(8, 6, 13, 0.94);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
     backdrop-filter: blur(18px) saturate(140%);
 }
 
-.mobile-bottom-nav__link,
-.mobile-bottom-nav__theme {
+.mobile-bottom-nav__link {
     display: grid;
     min-width: 0;
     min-height: 3.15rem;
     place-items: center;
-    gap: 0.2rem;
     border: 0;
     border-radius: 0.85rem;
-    color: rgba(33, 21, 13, 0.62);
+    color: rgba(255, 255, 255, 0.55);
     cursor: pointer;
     font: inherit;
-    font-size: 0.62rem;
-    font-weight: 800;
-    line-height: 1;
     text-decoration: none;
     transition: background 200ms ease, color 200ms ease, transform 200ms ease;
 }
 
 .mobile-bottom-nav__link:hover,
-.mobile-bottom-nav__link:focus-visible,
-.mobile-bottom-nav__theme:hover,
-.mobile-bottom-nav__theme:focus-visible {
-    background: rgba(56, 189, 248, 0.16);
-    color: #0284c7;
+.mobile-bottom-nav__link:focus-visible {
+    background: rgba(56, 189, 248, 0.14);
+    color: #7dd3fc;
     outline: none;
     transform: translateY(-2px);
 }
 
-.mobile-bottom-nav__dot {
-    width: 0.3rem;
-    height: 0.3rem;
-    border-radius: 50%;
-    background: #38bdf8;
+.mobile-bottom-nav__link svg {
+    width: 1.05rem;
+    height: 1.05rem;
 }
 
-.mobile-bottom-nav__theme {
-    width: 2.75rem;
-    color: #08060d;
-    font-size: 1.35rem;
+.mobile-bottom-nav__link--active {
+    background: rgba(14, 165, 233, 0.2);
+    color: #38bdf8;
 }
 
 @media (max-width: 767px) {
+    .mobile-bottom-nav {
+        display: grid;
+    }
+
     body {
         padding-bottom: 5.75rem;
     }
@@ -886,15 +880,8 @@ html.dark .mobile-bottom-nav {
     background: rgba(16, 22, 27, 0.88);
 }
 
-html.dark .mobile-bottom-nav__link,
-html.dark .mobile-bottom-nav__theme {
-    color: rgba(255, 255, 255, 0.7);
-}
-
 html.dark .mobile-bottom-nav__link:hover,
-html.dark .mobile-bottom-nav__link:focus-visible,
-html.dark .mobile-bottom-nav__theme:hover,
-html.dark .mobile-bottom-nav__theme:focus-visible {
+html.dark .mobile-bottom-nav__link:focus-visible {
     background: rgba(56, 189, 248, 0.18);
     color: #7dd3fc;
 }

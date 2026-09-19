@@ -4,9 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
+import { initializeAnalytics, trackEvent } from "../lib/analytics";
 
 
-const PHOTO = `${import.meta.env.BASE_URL}images/leonard1.png`;
+const PHOTO = `${import.meta.env.BASE_URL}images/leonard.jpeg`;
 
 const projects = [
     {
@@ -76,6 +77,8 @@ export function HomePage() {
     const heroContactLinkRef = useRef<HTMLSpanElement>(null);
 
     useEffect(() => {
+        initializeAnalytics();
+
         const typedInstances = [
             new Typed(heroEyebrowRef.current, {
                 strings: ["Agriculture • Farming"],
@@ -147,6 +150,7 @@ export function HomePage() {
 
             event.currentTarget.reset();
             setIsMessageSent(true);
+            trackEvent({ action: "contact_form_success", category: "engagement", label: "Contact form" });
         } catch {
             setSubmitError("That message could not be sent right now. Please try again or email me directly.");
         } finally {
@@ -270,8 +274,10 @@ export function HomePage() {
                                         className="relative z-10 h-full w-full overflow-hidden"
                                     >
                                         <img
-                                            src={`${import.meta.env.BASE_URL}images/leonard.png`}
+                                            src={`${import.meta.env.BASE_URL}images/leonard1.png`}
                                             alt="Leonard Onjoro"
+                                            loading="eager"
+                                            fetchPriority="high"
                                             className="h-full w-full object-cover object-center grayscale-[10%] transition duration-1000 hover:scale-105"
                                         />
 
@@ -319,6 +325,14 @@ export function HomePage() {
                                 <span className="normal-case tracking-normal">0768909480 | leonardonjoro@gmail.com</span>
                             </p>
                         </motion.div>
+
+                        <a
+                            href={`${import.meta.env.BASE_URL}resume/leonard-onjoro-cv.md`}
+                            download
+                            className="inline-flex w-fit items-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-black text-white transition hover:-translate-y-1 hover:bg-sky-500 hover:text-black"
+                        >
+                            Download CV <span aria-hidden="true">↓</span>
+                        </a>
 
                         <div className="grid gap-16 lg:grid-cols-[0.8fr_1.5fr]">
                             <motion.aside

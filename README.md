@@ -20,12 +20,16 @@ npm run build
 
 - All page content lives in `src/pages/HomePage.tsx` (hero, about/CV, services, projects, contact).
 - Header and footer are in `src/components/layout/`.
-- Colours and animations are in `src/styles/global.css` (the green / honey / soil palette is defined at the top in the `@theme` block).
+- Colours and animations are in `src/styles/global.css`.
 
 ## Adding Leonard's photo
 
-Replace `public/images/leonard.png` with a portrait photo (keep the same file name, portrait orientation works best).
-The current image is only a placeholder illustration.
+The home portrait uses `public/images/leonard1.png`; the About portrait uses the lighter `public/images/leonard.jpeg`. Portrait orientation works best.
+
+## CV and analytics
+
+- The downloadable CV is `public/resume/leonard-onjoro-cv.md`.
+- Analytics is optional. Copy `.env.example` to `.env` and set `VITE_GA_MEASUREMENT_ID` to enable Google Analytics 4. Contact form success events are tracked as `contact_form_success`.
 
 ## Contact form
 
